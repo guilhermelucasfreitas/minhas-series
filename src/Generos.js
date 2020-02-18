@@ -9,8 +9,30 @@ const Generos = () => {
             setData(res.data.data)
         })
     }, [])
+
+    const renderizaLinha = record => {
+        return (
+            <tr key={record.id}>
+                <th scope="row">{record.id}</th>
+                <td>{record.name}</td>
+                <td><button>+</button></td>
+            </tr>
+        )
+    }
+
+    if(data.length == 0){
+        return(
+            <div className="container">
+                <h1>Genêros</h1>
+                <div className="alert alert-warning" role="alert">
+                    Você não possui genêros criados
+                </div>
+            </div>
+        )
+    }
+
     return (
-    <div>
+    <div className="container">
         <h1>Generos</h1>
         <table className="table table-dark">
             <thead>
@@ -21,14 +43,9 @@ const Generos = () => {
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                </tr>
+                {data.map(renderizaLinha)}
             </tbody>
         </table>
-
-         <pre>{JSON.stringify(data)}</pre>
     </div>
     )
 }
