@@ -37,6 +37,7 @@ const Generos = () => {
         return(
             <div className="container">
                 <h1>Genêros</h1>
+                <Link to='/generos/novo' className="btn btn-primary">Nova série</Link>
                 <div className="alert alert-warning" role="alert">
                     Você não possui genêros criados
                 </div>
